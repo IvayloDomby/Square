@@ -1,17 +1,27 @@
-#include <iostream> 
+#include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <locale.h>
 using namespace std;
 
  int main(){ 
+  setlocale(LC_ALL, "Bulgarian");
   int size;  
-  bool solid =false;  //Плътно или Кухо
-  cout <<"Size:"; 
+  int type;
+  cout<<"За плътен квадрат:Въведи 1"<<endl;
+  cout<<"За кух квадрат:Въведи 2"<<endl;
+  cin>>type;
+  if (type<0||type>2)
+     cout<<"Въведеното число е грешно!";
+  else{   
+  cout <<"Големина на Квадрата:"; 
   cin >>size; 
   cout << endl; 
   for (int r=0;r<size;r++)
   { 
       for (int c=0;c<size;c++)
 	  { 
-          if(solid) 
+          if(type==1) 
               cout << " *"; 
           else
 		  { 
@@ -21,6 +31,9 @@ using namespace std;
                   cout<< "  "; 
           }  
       } 
-    cout<<endl; 
-}  
+    cout<<endl<<endl; 
+}
+}
+system ("pause");
+return 0;  
 }
